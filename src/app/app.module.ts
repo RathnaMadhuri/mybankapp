@@ -7,7 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { AccountComponent } from './account/account.component';
 import { RegisterComponent } from './register/register.component';
-import { NavBarComponent } from './shared/components/nav-bar/nav-bar.component';
+import { NavBarComponent } from './shared/components/nav-bar.component';
 
 @NgModule({
   declarations: [
