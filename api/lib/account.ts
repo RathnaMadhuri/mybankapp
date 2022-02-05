@@ -5,12 +5,12 @@ import { generateID } from '../utils';
 
 const account_number = 7856932;
 const account_balance= 2345;
-const account_name = rathna;
+const account_name = 'rathna';
 
 export const Account_Details: Account= [{
-    account_number: 'small',
-    account_balance: [],
-    account_name:
+    account_number: number,
+    account_balance: number,
+    account_name: string
 },
 
 ];
