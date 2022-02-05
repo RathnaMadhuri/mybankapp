@@ -11,20 +11,20 @@ app.use(express.json());
 app.use(express.urlencoded({extended : false}));
 
 app.use(cookieParser());
-const pizzaService = new PizzaService();
+const AccountService = new AccountService();
 
-app.get('/api/pizzas',(req,res) =>{
-    const pizzas = pizzaService.getCreatedPizzas();
+app.get('/api/accounts',(req,res) =>{
+    const accounts = AccountService.getCreatedAccounts();
     res.send({
-        msg: 'Found Pizzas',
-        pizzas,
+        msg: 'Account Found',
+        accounts,
     });
         });
-app.get('/api/pizzas/presets',(req,res) =>{
-    const pizzas = pizzaService.getPizzaPresets();
+app.get('/api/accounts/details',(req,res) =>{
+    const accounts = AccountService.getAccountDetails();
     res.send({
-        msg: 'Found Pizza Presets',
-        pizzas,
+        msg: 'Found Account types',
+        accounts,
         });
             
 });
