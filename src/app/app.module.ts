@@ -7,12 +7,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
-import { NavBarComponent } from './shared/components/nav-bar.component';
-import { HeaderComponent } from './shared/components/header.component';
+
+
 
 
 @NgModule({
-  declarations: [AppComponent, NavBarComponent, HeaderComponent, LoginComponent, RegisterComponent],
+  declarations: [AppComponent,  LoginComponent, RegisterComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
