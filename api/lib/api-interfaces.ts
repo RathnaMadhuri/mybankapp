@@ -1,10 +1,8 @@
-export type PizzaSize = 'small'|'medium'|'large'|'x-large'; 
-
-export interface Account{
-    name:;
-    toppings:string[];
+export interface Auth{
+    username: string;
+    password: string;
 }
 
-export interface PizzaEntity extends Account{
+export interface AuthEntity extends Auth{
     id: string;
 }

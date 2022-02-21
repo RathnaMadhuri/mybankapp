@@ -1,33 +1,39 @@
 import express from 'express';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
-import {AccountService} from './src/accounts.service';
+import { AuthService } from './src/auth.service';
+
 
 const app= express();
 const PORT = process.env.PORT || 4000;
+const logLevel = process.env.Log_Level || 'dev';
 
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost/users',{
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
+
+const db = mongoose.connection;
+db.on('error',console.error.bind(console,'connection error:'));
+db.once('open', () =>{
+    console.log('Connection Successful');
+});
+const authService = new AuthService();
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended : false}));
 
 app.use(cookieParser());
-const AccountService = new AccountService();
 
-app.get('/api/accounts',(req,res) =>{
-    const accounts = AccountService.getCreatedAccounts();
+
+app.get('/api/users',(req,res) =>{
+    const users = authService.getAuthDetails();
     res.send({
-        msg: 'Account Found',
-        accounts,
+        msg: 'Authentication success',
+        users,
     });
         });
-app.get('/api/accounts/details',(req,res) =>{
-    const accounts = AccountService.getAccountDetails();
-    res.send({
-        msg: 'Found Account types',
-        accounts,
-        });
-            
-});
 app.listen(PORT, () =>{
     console.log(`server is running at http://localhost:${PORT}`);
 });
