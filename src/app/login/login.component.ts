@@ -17,30 +17,35 @@ type AuthTypes = {
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
+  [x: string]: any;
   activeUser= 0;
   
   
   
-  loginForm = this.fb.group({
-    p: this.fb.array([this.createPizza()])
+  bankForm= this.fb.group({
+    authDetails: this.fb.array([]),
       
 
   });
 
-  get pizzas(): FormArray {
-    return this.loginForm.get('pizzas') as FormArray;
+  get authDetails(): FormArray {
+    return this.bankForm.get('authDetails') as FormArray;
   } 
 
-  total$ = this.pizzas.valueChanges.pipe(
-    startWith(this.calculateTotal(this.pizzas.value)),
-    map(() => this.calculateTotal(this.pizzas.value))
-  );
+  
 
   
 
   constructor(private fb: FormBuilder) {}
 
-  //fulfill the requirements of addPizza() in pizza-app.component.html create a function, named it createPizza
-  
+  //fulfill the requirements of addAccount() in account.component.html create a function, named it createAccount
+  onSubmit(event: any) {
+    console.log(event);
+    const { authDetails: any } = this.bankForm.value;
+    console.log(this.authDetails);
+    this['getAuthDetails'](this.authDetails);
+    
+    
+  }
    
 }

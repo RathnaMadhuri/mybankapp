@@ -1,27 +1,36 @@
-<div class="prudentbank-app">
-    
-    <!-- Pizza Form -->
-    <!-- Pizza Summary -->
-    <!--<div class="pizza__summary">
-      <p>Small {{ prices.small.size | size}}</p>
-      <p>Medium {{ prices.meduim.size | size }}</p>
-      <p>Large {{ prices.large.size | size }}</p>
-      <p>X-Large {{ prices["x-large"].size | size }}</p>
-    </div>-->
+<div class="bank-app">
   
+
+
   
-    <!-- Pizza Form -->
-    <form class="login-form" [formGroup]="loginForm" novalidate>
+  <form class="bank-form" [formGroup]="bankForm"  (ngSubmit)= "onSubmit($event)"novalidate>
 
-    
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required>
+  
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+  
+      <button type="submit">Login</button>
+      <form class="pizza-form"  (ngSubmit)= "onSubmit($event)"novalidate></form>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+  
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
 
 
-        
+      
 
 
 
 
-        
-        
-    </form>
-  </div>
+      
+      
+  </form>
+</div>
